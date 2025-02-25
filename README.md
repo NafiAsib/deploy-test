@@ -1,25 +1,30 @@
-# Deploy Test
+<center>
+   <img width="99" height="99" src="https://img.icons8.com/external-smashingstocks-hand-drawn-black-smashing-stocks/99/external-launch-data-analytics-smashingstocks-hand-drawn-black-smashing-stocks.png" alt="external-launch-data-analytics-smashingstocks-hand-drawn-black-smashing-stocks"/> 
+   <h1>Deploy Test</h1>
+</center>
 
-A simple one-page application that displays:
+A simple, small (_4.5mb-ish_) one-page application that displays:
 
 - Domain name used to access the application
 - IP address
 - Current time
-- Is it running in docker
 - Hostname
+- Is it running in docker
 - Is it running in k8s
 
 ## Running with Docker
 
-### Build the Docker image
+### Pull & run the Docker image
+
+```bash
+docker pull ghcr.io/nafiasib/deploy-test:latest
+docker run -p 3000:3000 ghcr.io/nafiasib/deploy-test:latest
+```
+
+### Build & run the Docker image
 
 ```bash
 docker build -t deploy-test .
-```
-
-### Run the container
-
-```bash
 docker run -p 3000:3000 deploy-test
 ```
 
