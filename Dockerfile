@@ -1,12 +1,22 @@
-FROM node:18-alpine
+FROM alpine:3.18 AS build
 
 WORKDIR /app
 
-COPY package*.json ./
-RUN npm install --production
+COPY index.html styles.css script.js server.js ./
 
-COPY . .
+FROM alpine:3.18 AS runtime
+
+# Install only the Node.js binary without npm and other tools
+RUN apk add --no-cache nodejs-current && \
+    addgroup -S nodeapp && \
+    adduser -S -G nodeapp nodeapp
+
+WORKDIR /app
+
+COPY --from=build --chown=nodeapp:nodeapp /app/index.html /app/styles.css /app/script.js /app/server.js ./
+
+USER nodeapp
 
 EXPOSE 3000
 
-CMD ["npm", "start"] 
+CMD ["node", "server.js"] 
