@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Server Info</title>
+    <link rel="stylesheet" href="styles.css" />
+  </head>
+  <body>
+    <div class="container">
+      <h1 class="info-title">Server Information</h1>
+      <div class="info-card">
+        <div class="info-item">
+          <span class="label">Domain:</span>
+          <span id="domain" class="value">Loading...</span>
+        </div>
+        <div class="info-item">
+          <span class="label">IP Address:</span>
+          <span id="ip" class="value">Loading...</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Current Time:</span>
+          <span id="time" class="value">Loading...</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Running in Docker:</span>
+          <span id="docker" class="value">Loading...</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Container Name:</span>
+          <span id="container" class="value">Loading...</span>
+        </div>
+        <div class="info-item">
+          <span class="label">Running in Kubernetes:</span>
+          <span id="kubernetes" class="value">Loading...</span>
+        </div>
+      </div>
+    </div>
+    <script src="script.js"></script>
+  </body>
+</html>
