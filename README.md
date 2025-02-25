@@ -1,7 +1,7 @@
-<center>
-   <img width="99" height="99" src="https://img.icons8.com/external-smashingstocks-hand-drawn-black-smashing-stocks/99/external-launch-data-analytics-smashingstocks-hand-drawn-black-smashing-stocks.png" alt="external-launch-data-analytics-smashingstocks-hand-drawn-black-smashing-stocks"/> 
+<div align="center">
+   <img width="99" height="99" src="https://img.icons8.com/external-smashingstocks-hand-drawn-black-smashing-stocks/99/external-launch-data-analytics-smashingstocks-hand-drawn-black-smashing-stocks.png" alt="deploy-test-logo"/> 
    <h1>Deploy Test</h1>
-</center>
+</div>
 
 A simple, small (_4.5mb-ish_) one-page application that displays:
 
