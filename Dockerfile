@@ -1,8 +1,8 @@
-FROM golang:1.23-alpine AS go-builder
+FROM golang:1.20-alpine AS go-builder
 
 WORKDIR /app
 
-COPY main.go .
+COPY main.go go.mod ./
 
 RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags="-s -w" -o server .
 
