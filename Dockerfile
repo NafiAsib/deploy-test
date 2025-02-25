@@ -1,22 +1,17 @@
-FROM alpine:3.18 AS build
+FROM golang:1.23-alpine AS go-builder
 
 WORKDIR /app
 
-COPY index.html styles.css script.js server.js ./
+COPY main.go .
 
-FROM alpine:3.18 AS runtime
+RUN CGO_ENABLED=0 GOOS=linux go build -a -installsuffix cgo -ldflags="-s -w" -o server .
 
-# Install only the Node.js binary without npm and other tools
-RUN apk add --no-cache nodejs-current && \
-    addgroup -S nodeapp && \
-    adduser -S -G nodeapp nodeapp
+FROM scratch AS runtime
 
-WORKDIR /app
+COPY --from=go-builder /app/server /server
 
-COPY --from=build --chown=nodeapp:nodeapp /app/index.html /app/styles.css /app/script.js /app/server.js ./
-
-USER nodeapp
+COPY index.html styles.css script.js /
 
 EXPOSE 3000
 
-CMD ["node", "server.js"] 
+CMD ["/server"]
